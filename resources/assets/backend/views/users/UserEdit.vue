@@ -5,33 +5,28 @@
         <ElCol :md="12">
           <input autocomplete="off" name="hidden-pass" type="password" style="position:absolute; top:-100px">
           <input autocomplete="off" name="hidden-name" type="text" style="position:absolute; top:-100px">
-          <ElFormItem prop="username" :error="errors.username" class="is-required" :label="$t('users.username')">
-            <ElInput v-model="model.username" />
+          <ElFormItem prop="name" :error="errors.full_name" label="Họ và tên">
+            <ElInput v-model="model.name" />
           </ElFormItem>
-          <ElFormItem prop="full_name" :error="errors.full_name" :label="$t('users.full_name')">
-            <ElInput v-model="model.full_name" />
+          <ElFormItem prop="gender" :error="errors.full_name" label="Giới tính">
+            <ElInput v-model="model.gender" />
           </ElFormItem>
-          <ElFormItem prop="email" :error="errors.email" class="is-required" :label="$t('users.email')">
-            <ElInput v-model="model.email" />
-          </ElFormItem>
-          <ElFormItem prop="phone" :error="errors.phone" :label="$t('users.phone')">
+          <ElFormItem prop="phone" :error="errors.phone" label="Số điện thoại">
             <ElInput v-model="model.phone" />
+          </ElFormItem>
+          <ElFormItem prop="address" :error="errors.address" label="Địa chỉ">
+            <ElInput v-model="model.address" />
           </ElFormItem>
         </ElCol>
         <ElCol :md="12">
-          <ElFormItem prop="address" :error="errors.address" :label="$t('users.address')">
-            <ElInput v-model="model.address" />
+          <ElFormItem prop="email" :error="errors.email" class="is-required" label="Email">
+            <ElInput v-model="model.email" />
           </ElFormItem>
-          <ElFormItem prop="password" :error="errors.password" :class="isEdit ? '' : 'is-required'" :label="$t('users.password')">
+          <ElFormItem prop="username" :error="errors.username" class="is-required" label="Tên đăng nhập">
+            <ElInput v-model="model.username" />
+          </ElFormItem>
+          <ElFormItem prop="password" :error="errors.password" :class="isEdit ? '' : 'is-required'" label="Mật khẩu">
             <ElInput v-model="model.password" type="password" />
-          </ElFormItem>
-          <ElFormItem prop="password_confirmation" :error="errors.password_confirmation" :class="{'is-required': !!model.password}" :label="$t('users.password_confirmation')">
-            <ElInput v-model="model.password_confirmation" type="password" />
-          </ElFormItem>
-          <ElFormItem v-if="role.name ==='super_admin' || role.name==='center_admin'" :label="$t('users.role')" prop="Role" :error="errors.role" class="is-required">
-            <ElSelect v-model="model.role.name" class="filter-item" placeholder="Chọn">
-              <ElOption v-for="item in roles" :key="item.name" :label="item.display_name" :value="item.name" />
-            </ElSelect>
           </ElFormItem>
         </ElCol>
       </ElRow>
@@ -52,11 +47,12 @@ const api_roles = new ResourceApi('roles')
 const defaultForm = {
   id: undefined,
   name: '',
-  full_name: '',
+  gender: '',
+  phone: '',
+  address: '',
+  username: '',
   email: '',
   password: '',
-  password_confirmation: '',
-  role: {}
 }
 
 export default {
@@ -90,7 +86,6 @@ export default {
     } else {
       this.model = Object.assign({}, defaultForm)
       this.updateApi = api.create
-      this.model.role = {}
     }
     this.getAllRole()
     if (this.role.level >= 9) this.getAllCenter()

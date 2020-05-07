@@ -31,38 +31,38 @@ export default {
 			{
 				name: 'id',
 				sortField: 'id',
-				title: this.$t('users.id')
+				title: 'Số thứ tự'
 			},
 			{
-				name: 'username',
-				sortField: 'username',
-				title: this.$t('users.username')
+				name: 'name',
+				sortField: 'name',
+				title: 'Họ và tên'
 			},
 			{
-				name: 'full_name',
-				sortField: 'full_name',
-				title: this.$t('users.full_name')
-			},
-			{
-				name: 'email',
-				sortField: 'email',
-				title: this.$t('users.email')
-			},
+				name: 'gender',
+				sortField: 'gender',
+				title: 'Giới tính'
+			},			
 			{
 				name: 'phone',
 				sortField: 'phone',
-				title: this.$t('users.phone')
+				title: 'Số điện thoại'
 			},
 			{
 				name: 'address',
 				sortField: 'address',
-				title: this.$t('users.address')
+				title: 'Địa chỉ'
+			},
+			{
+				name: 'email',
+				sortField: 'email',
+				title: 'Email'
 			},
 			{
 				name: 'role.display_name',
 				field: 'role.display_name',
 				sort: false,
-				title: this.$t('users.role')
+				title: 'Chức vụ'
 			},
 			{
 				name: '__component:action-column',
@@ -73,18 +73,18 @@ export default {
 		searchFields: [
 			{
 				field: 'username_like',
-				title: this.$t('users.username'),
-				placeholder: this.$t('users.placeholder_username')
+				title: 'Tên đăng nhập',
+				placeholder: 'Nhập tên đăng nhập'
 			},
 			{
 				field: 'full_name_like',
-				title: this.$t('users.full_name'),
-				placeholder: this.$t('users.placeholder_name')
+				title: 'Họ và tên',
+				placeholder: 'Nhập tên đầy đủ'
 			},
 			{
 				field: 'email_like',
-				title: this.$t('users.email'),
-				placeholder: this.$t('users.placeholder_email')
+				title: 'Email',
+				placeholder: 'abc@gmail.com'
 			}
 		]
 	}
@@ -110,13 +110,7 @@ methods: {
 					value: response.data[i].display_name
 				})
 			}
-			this.searchFields.push(
-				{
-					field: 'role_filter',
-					title: this.$t('users.role'),
-					select: this.selectRoles
-				}
-			)
+
 		}).catch(err => {
 			console.log(err)
 		})

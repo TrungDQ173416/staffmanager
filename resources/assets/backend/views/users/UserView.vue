@@ -41,19 +41,24 @@ export default {
       },
       fields: [
         {
-          field: 'username'
+          field: 'username',
+          title: "Tên đăng nhập"
         },
         {
-          field: 'full_name'
+          field: 'name',
+          title: "Họ và tên"
         },
         {
-          field: 'email'
+          field: 'email',
+           title: "Email"
         },
         {
-          field: 'phone'
+          field: 'phone',
+           title: " Số điện thoại"
         },
         {
-          field: 'address'
+          field: 'address',
+          title: "Địa chỉ"
         },
         {
           name: 'role',

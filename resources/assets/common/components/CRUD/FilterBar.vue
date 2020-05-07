@@ -113,14 +113,6 @@ export default {
           })
           this.$emit('filter', this.params)
       },
-			//Hàm này là code gà của Trung
-      // addSearchNull() {
-      //     Object.values(this.searchFields).forEach((element) => {
-      //         if (this.params[element.field] == '') {
-      //             this.params[element.field] = null
-      //         }
-      //     })
-      // },
     handleExport() {
       this.$emit('handleExport', true)
     },

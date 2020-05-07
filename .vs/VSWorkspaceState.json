@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\resources",
+    "\\resources\\assets",
+    "\\resources\\assets\\backend",
+    "\\resources\\assets\\common",
+    "\\resources\\assets\\common\\components",
+    "\\resources\\assets\\common\\components\\CRUD"
+  ],
+  "SelectedNode": "\\resources\\assets\\common\\components\\CRUD\\FilterBar.vue",
+  "PreviewInSolutionExplorer": false
+}

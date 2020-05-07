@@ -28,9 +28,7 @@ class UserStoreRequest extends BaseRequest
             'email' => 'required|email|unique:users',
             'name' => 'required|min:3|max:255',
             'full_name' => 'max:255',
-	        'password' => 'sometimes|min:6',
-	        'password_confirmation' => 'required_with:password|same:password|min:6',
-			'role' => ['required', new UpdateRoleRule()]
+	        'password' => 'sometimes|min:6'
         ];
     }
 }

@@ -31,8 +31,6 @@ class UserController extends ApiResourceController
 		$data = $request->only($this->model->getFillable());
 
 		$model = $this->query->create($data);
-		$role = $request->get('role');
-		$model->syncRoles([$role]);
 		return $this->resultResponse($model);
 	}
 
